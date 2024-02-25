@@ -1,4 +1,4 @@
--- Data Engineering --
+-- Data Engineering
 -- Drop TABLE if exists
 DROP TABLE IF EXISTS employees CASCADE;
 DROP TABLE IF EXISTS salaries CASCADE;
@@ -10,8 +10,8 @@ DROP TABLE IF EXISTS departments CASCADE;
 -- Import CSV Files Into Corresponding SQL Table
 -- Create table departments
 CREATE TABLE departments (
-    dept_no VARCHAR(30) NOT NULL,
-    dept_name VARCHAR(100) NOT NULL,
+    dept_no VARCHAR(4) NOT NULL,
+    dept_name VARCHAR(30) NOT NULL,
 	CONSTRAINT "pk_departments"
     PRIMARY KEY (dept_no)	
 );
@@ -19,12 +19,12 @@ CREATE TABLE departments (
 -- create table dept_emp
 CREATE TABLE dept_emp (
     emp_no INT NOT NULL,
-    dept_no VARCHAR(30) NOT NULL
+    dept_no VARCHAR(4) NOT NULL
 );
 
 -- create table dept_manager
 CREATE TABLE dept_manager (
-    dept_no VARCHAR(30) NOT NULL,
+    dept_no VARCHAR(4) NOT NULL,
     emp_no INT NOT NULL   
 );
 
@@ -33,9 +33,9 @@ CREATE TABLE employees (
     emp_no INT NOT NULL,
     emp_title_id VARCHAR(30) NOT NULL,
     birth_date date NOT NULL,
-    first_name VARCHAR(100) NOT NULL,
-    last_name VARCHAR(100) NOT NULL,
-    sex VARCHAR(10) NOT NULL,
+    first_name VARCHAR(30) NOT NULL,
+    last_name VARCHAR(30) NOT NULL,
+    sex VARCHAR(1) NOT NULL,
     hire_date date NOT NULL,
 	 CONSTRAINT "pk_employees"
     PRIMARY KEY (emp_no)
@@ -52,7 +52,7 @@ CREATE TABLE salaries (
 -- create table titles
 CREATE TABLE titles (
     title_id varchar(30) not null,
-    title varchar(100) not null,
+    title varchar(30) not null,
 	CONSTRAINT "pk_titles"
     PRIMARY KEY (title_id)
 );
